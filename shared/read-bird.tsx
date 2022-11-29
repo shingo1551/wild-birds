@@ -1,4 +1,5 @@
 export interface Names {
+  file: string;
   kana: string;
   kanji: string;
   branch: string;
@@ -11,10 +12,12 @@ export async function readBirdJson(year: number, id: string) {
   const json = await Deno.readTextFile(
     `static/${year}/${id}/bird.json`,
   );
-  return JSON.parse(json) as {
+  const o = JSON.parse(json) as {
     data: number[];
     names: Names;
   };
+  o.names.file = id;
+  return o;
 }
 
 export async function readBirdTxt(year: number, id: string) {
