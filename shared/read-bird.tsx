@@ -9,7 +9,7 @@ export interface Names {
 
 export function readBirdJson(year: number, id: string) {
   const json = Deno.readTextFileSync(
-    `data/${year}/${id}.json`,
+    `static/${year}/${id}.json`,
   );
   return JSON.parse(json) as {
     data: number[];
@@ -19,6 +19,6 @@ export function readBirdJson(year: number, id: string) {
 
 export function readBirdTxt(year: number, id: string) {
   return Deno.readTextFileSync(
-    `data/${year}/${id}.txt`,
+    `static/${year}/${id}.txt`,
   );
 }

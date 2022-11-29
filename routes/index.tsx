@@ -17,7 +17,7 @@ export const handler: Handlers<Props> = {
       for (const dirEntry of Deno.readDirSync(".")) {
         console.log(dirEntry);
       }
-      for (const dirEntry of Deno.readDirSync("data/2021")) {
+      for (const dirEntry of Deno.readDirSync("static/2021")) {
         files.add(dirEntry.name.split(".")[0]);
       }
 
@@ -41,7 +41,7 @@ export default function Home({ data }: PageProps<Props>) {
       <Head>
         <title>山ノ神沼の鳥</title>
       </Head>
-      <div class="p-4 mx-auto max-w-screen-md flex flex-col">
+      <div class="m-4 mx-auto max-w-screen-md flex flex-col">
         {data.map((bird) => (
           <a href={bird.href}>{bird.names.kana} {bird.names.kanji}</a>
         ))}
