@@ -11,21 +11,24 @@ interface Prop {
 type Props = Prop[];
 
 export const handler: Handlers<Props> = {
-  GET(_, ctx) {
+  async GET(_, ctx) {
     try {
-      const files = new Set<string>();
-      for (const dirEntry of Deno.readDirSync(".")) {
+      const files = [] as string[];
+      for await (const dirEntry of Deno.readDir(".")) {
         console.log(dirEntry);
       }
-      for (const dirEntry of Deno.readDirSync("static/2021")) {
-        files.add(dirEntry.name.split(".")[0]);
+      for await (const dirEntry of Deno.readDir("static/2021")) {
+        const path = dirEntry.name.split(".");
+        if (path[1] == "json") {
+          files.push(path[0]);
+        }
       }
 
       const props = [] as Props;
-      files.forEach((file) => {
-        const o = readBirdJson(2021, file);
+      for (const file of files) {
+        const o = await readBirdJson(2021, file);
         props.push({ href: `bird/2021/${file}`, names: o.names });
-      });
+      }
 
       return ctx.render(props);
     } catch (e) {

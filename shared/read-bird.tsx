@@ -7,8 +7,8 @@ export interface Names {
   english: string;
 }
 
-export function readBirdJson(year: number, id: string) {
-  const json = Deno.readTextFileSync(
+export async function readBirdJson(year: number, id: string) {
+  const json = await Deno.readTextFile(
     `static/${year}/${id}.json`,
   );
   return JSON.parse(json) as {
@@ -17,8 +17,8 @@ export function readBirdJson(year: number, id: string) {
   };
 }
 
-export function readBirdTxt(year: number, id: string) {
-  return Deno.readTextFileSync(
+export async function readBirdTxt(year: number, id: string) {
+  return await Deno.readTextFile(
     `static/${year}/${id}.txt`,
   );
 }

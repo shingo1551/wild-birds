@@ -5,11 +5,11 @@ import Bird, { Props } from "../../../islands/Bird.tsx";
 import { readBirdJson, readBirdTxt } from "../../../shared/read-bird.tsx";
 
 export const handler: Handlers<Props> = {
-  GET(_, ctx) {
+  async GET(_, ctx) {
     try {
       const { year, id } = ctx.params;
-      const o = readBirdJson(+year, id);
-      const comment = readBirdTxt(+year, id);
+      const o = await readBirdJson(+year, id);
+      const comment = await readBirdTxt(+year, id);
       return ctx.render({ ...o, comment: comment });
     } catch (e) {
       console.warn(e);
