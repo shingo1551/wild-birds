@@ -14,9 +14,6 @@ export const handler: Handlers<Props> = {
   async GET(_, ctx) {
     try {
       const files = [] as string[];
-      for await (const dirEntry of Deno.readDir(".")) {
-        console.log(dirEntry);
-      }
       for await (const dirEntry of Deno.readDir("static/2021")) {
         const path = dirEntry.name.split(".");
         if (path[1] == "json") {
