@@ -14,6 +14,10 @@ export default class Chart extends Component<Props> {
   chart: any;
 
   chartRender() {
+    const categories = [];
+    for (let i = 1; i < 13; i++)
+      categories.push(`${i}月`);
+
     const options = {
       chart: {
         type: "bar",
@@ -25,7 +29,7 @@ export default class Chart extends Component<Props> {
         },
       ],
       xaxis: {
-        categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        categories: categories
       },
     };
 
