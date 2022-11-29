@@ -27,6 +27,8 @@ export const handler: Handlers<Props> = {
         props.push({ href: `bird/2021/${file}`, names: o.names });
       }
 
+      props.sort((a, b) => a.names.kana < b.names.kana ? -1 : 1)
+
       return ctx.render(props);
     } catch (e) {
       console.warn(e);
