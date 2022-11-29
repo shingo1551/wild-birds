@@ -24,7 +24,7 @@ export const handler: Handlers<Props> = {
         props.push({ href: `bird/2021/${file}`, names: o.names });
       }
 
-      props.sort((a, b) => a.names.kana < b.names.kana ? -1 : 1)
+      props.sort((a, b) => a.names.kana < b.names.kana ? -1 : 1);
 
       return ctx.render(props);
     } catch (e) {
@@ -40,7 +40,7 @@ export default function Home({ data }: PageProps<Props>) {
       <Head>
         <title>山ノ神沼の鳥</title>
       </Head>
-      <div class="m-4 mx-auto max-w-screen-md">
+      <div class="m-4 mx-auto max-w-screen-md font-serif">
         <h1 class="text-2xl">山ノ神沼の鳥 2021</h1>
         <hr />
         <div class="flex flex-col m-4">

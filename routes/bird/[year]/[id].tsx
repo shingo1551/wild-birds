@@ -26,8 +26,10 @@ export default function route({ data }: PageProps<Props>) {
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
       </Head>
 
-      <div class="m-4">
-        <h1 class="text-2xl"><a href="/">山ノ神沼の鳥 2021</a></h1>
+      <div class="m-4 font-serif">
+        <h1 class="text-2xl">
+          <a href="/">山ノ神沼の鳥 2021</a>
+        </h1>
         <hr />
       </div>
 

@@ -11,7 +11,7 @@ export interface Props {
 
 export default function islands(props: Props) {
   return (
-    <div>
+    <div class="font-serif">
       <Card {...props.names} />
       <Chart data={props.data} />
       <Comment comment={props.comment} />

@@ -5,12 +5,13 @@ export function Card(
 ) {
   return (
     <div class="m-4">
-      <h1 class="text-xl">{kana}</h1>
+      <h1>
+        <span class="text-2xl font-bold">{kana}</span>
+        <span class="ml-2 text-lg">{kanji}</span>
+      </h1>
       <div class="m-2">
-        <h2>{kanji}</h2>
-        <h2>{branch}</h2>
-        <h2>{genus}</h2>
-        <h2>{scientific}</h2>
+        <h2>{branch}{genus}</h2>
+        <h2 class="italic font-bold">{scientific}</h2>
         <h2>{english}</h2>
       </div>
     </div>
