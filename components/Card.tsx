@@ -1,13 +1,10 @@
 import { Names as Props } from "../shared/read-bird.tsx";
-import { IS_BROWSER } from "$fresh/runtime.ts";
 
 export function Card(
   { file, kana, kanji, branch, genus, scientific, english }: Props,
 ) {
-  const sp = IS_BROWSER && (window.screen.width < 720)
-
   return (
-    <div class={`m-4 ${sp ? '' : 'flex'}`}>
+    <div class="card">
       <div style="flex-grow: 1;">
         <h1>
           <span class="text-2xl font-bold">{kana}</span>

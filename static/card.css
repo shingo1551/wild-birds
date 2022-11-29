@@ -1,0 +1,9 @@
+@media screen and (min-width: 720px) {
+  .card {
+    display: flex;
+  }
+}
+
+.card {
+  margin: 1rem;
+}

@@ -40,7 +40,7 @@ export default function Home({ data }: PageProps<Props>) {
       <Head>
         <title>山ノ神沼の鳥</title>
       </Head>
-      <div class="m-4 mx-auto max-w-screen-md font-serif">
+      <div class="m-4 mx-auto max-w-screen-lg font-serif">
         <h1 class="text-2xl">山ノ神沼の鳥 2021</h1>
         <hr />
         <div class="flex flex-col m-4">

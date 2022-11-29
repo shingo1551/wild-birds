@@ -38,6 +38,6 @@ export default class Chart extends Component<Props> {
   }
 
   render() {
-    return <div class="max-w-4xl" ref={(elm) => this.div = elm}></div>;
+    return <div ref={(elm) => this.div = elm}></div>;
   }
 }

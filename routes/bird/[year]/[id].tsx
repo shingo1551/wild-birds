@@ -23,10 +23,11 @@ export default function route({ data }: PageProps<Props>) {
     <>
       <Head>
         <title>{data.names.kana}</title>
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts" />
+        <link href="/card.css" rel="stylesheet" />
       </Head>
 
-      <div class="m-4 font-serif">
+      <div class="m-4 mx-auto max-w-screen-lg font-serif">
         <h1 class="text-2xl">
           <a href="/">山ノ神沼の鳥 2021</a>
         </h1>
