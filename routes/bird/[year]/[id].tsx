@@ -22,7 +22,7 @@ export default function route({ data }: PageProps<Props>) {
   return (
     <>
       <Head>
-        <title>山ノ神沼の鳥</title>
+        <title>{data.names.kana}</title>
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
       </Head>
 
