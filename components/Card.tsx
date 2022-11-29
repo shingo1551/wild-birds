@@ -5,7 +5,7 @@ export function Card(
 ) {
   return (
     <div class="m-4">
-      <h1 class="text-2xl">{kana}</h1>
+      <h1 class="text-xl">{kana}</h1>
       <div class="m-2">
         <h2>{kanji}</h2>
         <h2>{branch}</h2>
