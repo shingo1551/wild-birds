@@ -15,10 +15,7 @@ export const handler: Handlers<Props> = {
     try {
       const files = [] as string[];
       for await (const dirEntry of Deno.readDir("static/2021")) {
-        const path = dirEntry.name.split(".");
-        if (path[1] == "json") {
-          files.push(path[0]);
-        }
+        files.push(dirEntry.name);
       }
 
       const props = [] as Props;

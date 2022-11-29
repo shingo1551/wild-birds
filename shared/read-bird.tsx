@@ -9,7 +9,7 @@ export interface Names {
 
 export async function readBirdJson(year: number, id: string) {
   const json = await Deno.readTextFile(
-    `static/${year}/${id}.json`,
+    `static/${year}/${id}/bird.json`,
   );
   return JSON.parse(json) as {
     data: number[];
@@ -19,6 +19,6 @@ export async function readBirdJson(year: number, id: string) {
 
 export async function readBirdTxt(year: number, id: string) {
   return await Deno.readTextFile(
-    `static/${year}/${id}.txt`,
+    `static/${year}/${id}/bird.txt`,
   );
 }
