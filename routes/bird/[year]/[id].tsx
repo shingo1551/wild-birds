@@ -8,8 +8,8 @@ export const handler: Handlers<Props> = {
   GET(_, ctx) {
     try {
       const { year, id } = ctx.params;
-      const o = readBirdJson(year, id);
-      const comment = readBirdTxt(year, id);
+      const o = readBirdJson(+year, id);
+      const comment = readBirdTxt(+year, id);
       return ctx.render({ ...o, comment: comment });
     } catch (e) {
       console.warn(e);

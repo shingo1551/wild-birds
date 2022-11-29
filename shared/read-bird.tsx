@@ -17,7 +17,7 @@ export function readBirdJson(year: number, id: string) {
   };
 }
 
-export function readBirdTxt(year: string, id: string) {
+export function readBirdTxt(year: number, id: string) {
   return Deno.readTextFileSync(
     `data/${year}/${id}.txt`,
   );
