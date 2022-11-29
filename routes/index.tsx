@@ -14,6 +14,9 @@ export const handler: Handlers<Props> = {
   GET(_, ctx) {
     try {
       const files = new Set<string>();
+      for (const dirEntry of Deno.readDirSync(".")) {
+        console.log(dirEntry);
+      }
       for (const dirEntry of Deno.readDirSync("data/2021")) {
         files.add(dirEntry.name.split(".")[0]);
       }
