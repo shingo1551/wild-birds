@@ -1,0 +1,11 @@
+{
+  "data": [ 3, 10, 7, 11, 10, 13, 12, 15, 19, 10, 7, 12 ],
+  "names": {
+    "kana": "キジバト",
+    "kanji": "雉鳩",
+    "branch": "ハト",
+    "genus": "キジバト",
+    "scientific": "Streptopelia orientalis",
+    "english": "Eastern Turtle Dove"
+  }
+}
