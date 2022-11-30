@@ -2,15 +2,15 @@ import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 
 import Bird, { Props } from "../../../islands/Bird.tsx";
-import { readBirdJson, readBirdTxt } from "../../../shared/read-bird.tsx";
+import { getBird, readBirdTxt } from "../../../shared/read-bird.tsx";
 
 export const handler: Handlers<Props> = {
   async GET(_, ctx) {
     try {
       const { year, id } = ctx.params;
-      const o = await readBirdJson(+year, id);
+      const bird = await getBird(+year, id);
       const comment = await readBirdTxt(+year, id);
-      return ctx.render({ ...o, comment: comment });
+      return ctx.render({ ...bird, comment: comment });
     } catch (e) {
       console.warn(e);
       return ctx.render();
@@ -35,6 +35,12 @@ export default function route({ data }: PageProps<Props>) {
       </div>
 
       <Bird {...data} />
+
+      <div class="m-4 flex">
+        <div><a class="text-left" href={data.prev.file}>← {data.prev.kana}</a></div>
+        <div style="flex-grow: 1;"></div>
+        <div><a class="text-right" href={data.next.file}>{data.next.kana} →</a></div>
+      </div>
     </>
   );
 }

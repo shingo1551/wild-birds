@@ -1,11 +1,9 @@
 import Chart from "../components/Chart.tsx";
 import { Card } from "../components/Card.tsx";
 import { Comment } from "../components/Comment.tsx";
-import { Names } from "../shared/read-bird.tsx";
+import { Bird } from "../shared/read-bird.tsx";
 
-export interface Props {
-  data: number[];
-  names: Names;
+export interface Props extends Bird {
   comment: string;
 }
 
