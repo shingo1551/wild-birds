@@ -23,7 +23,7 @@ export default function route({ data }: PageProps<Props>) {
     <>
       <Head>
         <title>{data.names.kana}</title>
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts" />
+        <script type="module" src="https://cdn.jsdelivr.net/npm/apexcharts" />
         <link href="/card.css" rel="stylesheet" />
       </Head>
 
