@@ -1,4 +1,4 @@
-interface Names {
+export interface Names {
   file: string;
   kana: string;
   kanji: string;
@@ -40,7 +40,10 @@ export interface Bird {
   next: Link;
 }
 
-export type Birds = Bird[];
+export interface Birds {
+  birds: Bird[];
+  monthly: number[];
+}
 
 let _birds: Birds;
 
@@ -54,14 +57,14 @@ export async function getBirds(year: number) {
       files.push(dirEntry.name);
   }
 
-  const birds = [] as Birds;
+  const birds = [] as Bird[];
   for (const file of files) {
     const o = await readBirdJson(year, file);
     birds.push({ file: file, data: o.data, names: o.names } as Bird);
   }
 
   birds.sort((a, b) => a.names.kana.localeCompare(b.names.kana));
-  _birds = birds;
+  _birds = { birds: birds, monthly: (await getMonthly(year)).monthly };
 
   // create link
   birds[0].prev = getLink(birds.length - 1);
@@ -71,15 +74,15 @@ export async function getBirds(year: number) {
   }
   birds[birds.length - 1].next = getLink(0);
 
-  return birds;
+  return _birds;
 }
 
 function getLink(i: number) {
-  return { file: _birds[i].file, kana: _birds[i].names.kana }
+  return { file: _birds.birds[i].file, kana: _birds.birds[i].names.kana }
 }
 
 export async function getBird(year: number, file: string) {
-  const birds = await getBirds(year);
+  const birds = (await getBirds(year)).birds;
   return birds.find(bird => bird.file == file) as Bird;
 }
 

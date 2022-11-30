@@ -1,6 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
-
 import { Birds as Props, getBirds } from "../shared/read-bird.tsx";
 
 export const handler: Handlers<Props> = {
@@ -26,9 +25,15 @@ export default function Home({ data }: PageProps<Props>) {
         <hr />
         <h2 class="mx-4 my-2 text-lg">種別野鳥観察数の年間変化</h2>
         <div class="flex flex-col m-4">
-          {data.map((bird) => (
+          {data.birds.map((bird) => (
             <a href={`bird/2021/${bird.file}`}>{bird.names.kana} {bird.names.kanji}</a>
           ))}
+        </div>
+        <hr />
+        <div class="m-4 mx-auto max-w-screen-lg flex flex-col">
+          <a href={`top30/2021`}>野鳥の頻度 ベスト30 (Bar Chart)</a>
+          <a href={`top10/2021`}>野鳥の頻度 ベスト10 (Line Chart)</a>
+          <a href={`data-table/2021`}>データテーブル</a>
         </div>
       </div>
     </>
