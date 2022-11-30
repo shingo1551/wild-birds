@@ -1,10 +1,10 @@
 {
-  "data": [23, 26, 26, 13, 12, 0, 0, 0, 1, 11, 23, 25],
+  "data": [ 23, 26, 26, 13, 12, 0, 0, 0, 1, 11, 23, 25 ],
   "names": {
     "kana": "オオバン",
     "kanji": "大鷭",
-    "branch": "クイナ科",
-    "genus": "オオバン属",
+    "branch": "クイナ",
+    "genus": "オオバン",
     "scientific": "Fulica atra",
     "english": "Common Coot"
   }

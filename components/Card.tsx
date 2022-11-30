@@ -11,7 +11,7 @@ export function Card(
           <span class="ml-2 text-lg">{kanji}</span>
         </h1>
         <div class="m-2">
-          <h2>{branch}{genus}</h2>
+          <h2>{branch}科 {genus}属</h2>
           <h2 class="italic font-bold">{scientific}</h2>
           <h2>{english}</h2>
         </div>
