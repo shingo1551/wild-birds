@@ -2,7 +2,7 @@ import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 
 import Bird, { Props } from "../../../islands/Bird.tsx";
-import { getBird, readBirdTxt } from "../../../shared/read-bird.tsx";
+import { getBird, getMonthly, readBirdTxt } from "../../../shared/read-bird.tsx";
 
 export const handler: Handlers<Props> = {
   async GET(_, ctx) {
@@ -10,7 +10,8 @@ export const handler: Handlers<Props> = {
       const { year, id } = ctx.params;
       const bird = await getBird(+year, id);
       const comment = await readBirdTxt(+year, id);
-      return ctx.render({ ...bird, comment: comment });
+      const o = await getMonthly(+year)
+      return ctx.render({ ...bird, comment: comment, monthly: o.monthly });
     } catch (e) {
       console.warn(e);
       return ctx.render();

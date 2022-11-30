@@ -5,6 +5,7 @@ declare var ApexCharts: any;
 
 interface Props {
   data: number[];
+  monthly: number[];
 }
 
 export default class Chart extends Component<Props> {
@@ -18,6 +19,8 @@ export default class Chart extends Component<Props> {
     for (let i = 1; i < 13; i++)
       categories.push(`${i}月`);
 
+    const data = this.props.data.map((m, i) => Math.ceil(100 * m / this.props.monthly[i]));
+
     const options = {
       chart: {
         type: "bar",
@@ -25,7 +28,7 @@ export default class Chart extends Component<Props> {
       series: [
         {
           name: "bird",
-          data: this.props.data,
+          data: data,
         },
       ],
       xaxis: {

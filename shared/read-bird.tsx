@@ -50,7 +50,8 @@ export async function getBirds(year: number) {
 
   const files = [] as string[];
   for await (const dirEntry of Deno.readDir(`static/${year}`)) {
-    files.push(dirEntry.name);
+    if (dirEntry.isDirectory)
+      files.push(dirEntry.name);
   }
 
   const birds = [] as Birds;
@@ -80,4 +81,17 @@ function getLink(i: number) {
 export async function getBird(year: number, file: string) {
   const birds = await getBirds(year);
   return birds.find(bird => bird.file == file) as Bird;
+}
+
+//
+let _monthly: { monthly: number[] };
+export async function getMonthly(year: number) {
+  if (_monthly)
+    return _monthly;
+
+  const json = await Deno.readTextFile(
+    `static/${year}/_data.json`,
+  );
+  _monthly = JSON.parse(json);
+  return _monthly;
 }
