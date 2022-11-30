@@ -36,7 +36,7 @@ export default function route({ data }: PageProps<Props>) {
 
       <Bird {...data} />
 
-      <div class="m-4 flex">
+      <div class="m-4 mx-auto max-w-screen-lg flex">
         <div><a class="text-left" href={data.prev.file}>← {data.prev.kana}</a></div>
         <div style="flex-grow: 1;"></div>
         <div><a class="text-right" href={data.next.file}>{data.next.kana} →</a></div>
