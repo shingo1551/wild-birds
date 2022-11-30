@@ -60,7 +60,7 @@ export async function getBirds(year: number) {
     birds.push({ file: file, data: o.data, names: o.names } as Bird);
   }
 
-  birds.sort((a, b) => a.names.kana < b.names.kana ? -1 : 1);
+  birds.sort((a, b) => a.names.kana.localeCompare(b.names.kana));
   _birds = birds;
 
   // create link
