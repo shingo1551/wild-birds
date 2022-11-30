@@ -39,6 +39,7 @@ export default function Home({ data }: PageProps<Props>) {
     <>
       <Head>
         <title>山ノ神沼の鳥</title>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/apexcharts" />
       </Head>
       <div class="m-4 mx-auto max-w-screen-lg font-serif">
         <h1 class="text-2xl">山ノ神沼の鳥 2021</h1>
