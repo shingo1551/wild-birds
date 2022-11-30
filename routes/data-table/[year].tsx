@@ -26,7 +26,9 @@ export default function route({ data }: PageProps<Props>) {
       </Head>
 
       <div class="m-4 mx-auto max-w-screen-lg font-serif">
-        <h1 class="text-2xl">山ノ神沼の鳥 2021</h1>
+        <h1 class="text-2xl">
+          <a href="/">山ノ神沼の鳥 2021</a>
+        </h1>
         <hr />
         <DataTable {...data} />
       </div>
