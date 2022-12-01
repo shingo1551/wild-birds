@@ -16,10 +16,13 @@ export default class Chart extends Component<Props> {
 
   chartRender() {
     const categories = [];
-    for (let i = 1; i < 13; i++)
+    for (let i = 1; i < 13; i++) {
       categories.push(`${i}月`);
+    }
 
-    const data = this.props.data.map((m, i) => Math.ceil(100 * m / this.props.monthly[i]));
+    const data = this.props.data.map((m, i) =>
+      Math.ceil(100 * m / this.props.monthly[i])
+    );
 
     const options = {
       chart: {
@@ -32,7 +35,7 @@ export default class Chart extends Component<Props> {
         },
       ],
       xaxis: {
-        categories: categories
+        categories: categories,
       },
     };
 
