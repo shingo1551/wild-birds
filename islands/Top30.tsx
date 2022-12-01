@@ -15,7 +15,7 @@ export default class Top30 extends Component<Props> {
     const monthly = this.props.monthly;
     const birds = this.props.birds.map((bird) => {
       const sum = bird.data.reduce((v1, v2, i) => v1 + v2 / monthly[i], 0);
-      return { data: bird.data, name: bird.names.kana, value: sum * 100 / 12 };
+      return { data: bird.data, name: bird.names.kana, value: Math.ceil(sum * 100 / 12) };
     }).sort((v1, v2) => v2.value - v1.value).slice(0, 30);
 
     const data = birds.map((bird) => bird.value);
