@@ -30,7 +30,7 @@ export default class Chart extends Component<Props> {
       },
       series: [
         {
-          name: "bird",
+          name: "観察頻度",
           data: data,
         },
       ],
