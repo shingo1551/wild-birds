@@ -1,11 +1,15 @@
+table {
+  font-size: 0.75rem;
+}
+
+tr:nth-child(even) td {
+  background-color: #bae6fd;
+}
+
 th {
   text-align: left;
 }
 
 td {
   text-align: right;
-}
-
-table {
-  font-size: 0.75rem;
 }
