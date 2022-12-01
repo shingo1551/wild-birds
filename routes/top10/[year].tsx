@@ -1,3 +1,34 @@
-export default function Home() {
-  return <div>Top10</div>;
+import { Head } from "$fresh/runtime.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
+
+import Top10 from "../../islands/Top10.tsx";
+import { Birds as Props, getBirds } from "../../shared/read-bird.tsx";
+
+export const handler: Handlers<Props> = {
+  async GET(_, ctx) {
+    try {
+      return ctx.render(await getBirds(2021));
+    } catch (e) {
+      console.warn(e);
+      return ctx.render();
+    }
+  },
+};
+
+export default function Home({ data }: PageProps<Props>) {
+  return (
+    <>
+      <Head>
+        <title>山ノ神沼の鳥</title>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/apexcharts" />
+      </Head>
+      <div class="m-4 mx-auto max-w-screen-lg font-serif">
+        <h1 class="text-2xl">
+          <a href="/">山ノ神沼の鳥 2021</a>
+        </h1>
+        <hr />
+      </div>
+      <Top10 {...data} />
+    </>
+  );
 }
