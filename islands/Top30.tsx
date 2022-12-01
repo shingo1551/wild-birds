@@ -22,6 +22,7 @@ export default class Top30 extends Component<Props> {
 
     const options = {
       series: [{
+        name: "観察頻度",
         data: data,
       }],
       chart: {
